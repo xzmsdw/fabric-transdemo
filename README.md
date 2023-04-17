@@ -82,11 +82,11 @@ chmod +x ./start.sh
 
 查询数据测试
 
-![image-20230417180450888](C:\Users\Iris丶xie\AppData\Roaming\Typora\typora-user-images\image-20230417180450888.png)
+![image-20230417180450888](https://files.cnblogs.com/files/blogs/753861/image-20230417180450888.gif?t=1681736591)
 
 将Data中的数据base64解码得到如下数据
 
-![image-20230417180538016](C:\Users\Iris丶xie\AppData\Roaming\Typora\typora-user-images\image-20230417180538016.png)
+![image-20230417180538016](https://files.cnblogs.com/files/blogs/753861/image-20230417180538016.gif?t=1681736597)
 
 这些操作本该在前端完成并展示的，此处只能这样展示了
 
