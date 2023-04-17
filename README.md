@@ -15,7 +15,7 @@ server： 使用gin写的后端
 
 链码： Go
 
-环境： Ubuntu20.04，  Docker 20.10.21，  Docker-compose 1.25.0
+环境： Ubuntu20.04，  Docker 20.10.21，  Docker-compose 1.25.0,  Go 1.18.2
 ```
 
 ##### 区块链部分
@@ -64,14 +64,14 @@ docker pull couchdb:3.1.1
 
 ```sh
 chmod +x ./start.sh
-./start.sh
+sudo ./start.sh
 ```
 
 ##### 启动server下的start.sh
 
 ```sh
 chmod +x ./start.sh
-./start.sh
+sudo ./start.sh
 ```
 
 ##### 访问
@@ -96,3 +96,10 @@ chmod +x ./start.sh
 
 停止network，执行stop.sh脚本即可
 
+### 一些错误
+
+```
+Error: failed to create deliver client for orderer: orderer client failed to connect to orderer.example.com:7050: failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp: lookup orderer.example.com: no such host"
+```
+
+需要关闭防火墙
