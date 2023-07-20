@@ -26,13 +26,13 @@ docker exec -it cli1 bash -c "peer channel join -b mychannel.block"
 docker exec -it cli1 bash -c "peer channel update -o orderer.example.com:7050 -c mychannel -f ./channel-artifacts/Org1MSPanchors.tx --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem"
 docker exec -it cli2 bash -c "peer channel update -o orderer.example.com:7050 -c mychannel -f ./channel-artifacts/Org2MSPanchors.tx --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem"
 
-sudo cp -rf /home/iris/newnode/tmpcodes/farmer/ ~/newnode/chaincode/go/farmer
-sudo cp -rf /home/iris/newnode/tmpcodes/driver/ ~/newnode/chaincode/go/driver
-sudo cp -rf /home/iris/newnode/tmpcodes/material/ ~/newnode/chaincode/go/material
-sudo cp -rf /home/iris/newnode/tmpcodes/sell/ ~/newnode/chaincode/go/sell
-sudo cp -rf /home/iris/newnode/tmpcodes/seller/ ~/newnode/chaincode/go/seller
-sudo cp -rf /home/iris/newnode/tmpcodes/capital/ ~/newnode/chaincode/go/capital
-sudo cp -rf /home/iris/newnode/tmpcodes/users/ ~/newnode/chaincode/go/users
+sudo cp -rf tmpcodes/farmer/ chaincode/go/farmer
+sudo cp -rf tmpcodes/driver/ chaincode/go/driver
+sudo cp -rf tmpcodes/material/ chaincode/go/material
+sudo cp -rf tmpcodes/sell/ chaincode/go/sell
+sudo cp -rf tmpcodes/seller/ chaincode/go/seller
+sudo cp -rf tmpcodes/capital/ chaincode/go/capital
+sudo cp -rf tmpcodes/users/ chaincode/go/users
 #打包链码
 docker exec -it cli1 bash -c "cd /opt/gopath/src/github.com/hyperledger/fabric-cluster/chaincode/go/farmer;go env -w GOPROXY=https://goproxy.cn,direct;go env -w GO111MODULE=auto;go mod init farmer;go mod tidy;go mod vendor;cd /opt/gopath/src/github.com/hyperledger/fabric/peer;peer lifecycle chaincode package farmer.tar.gz --path github.com/hyperledger/fabric-cluster/chaincode/go/farmer --label farmer_1.0"
 docker exec -it cli1 bash -c "cd /opt/gopath/src/github.com/hyperledger/fabric-cluster/chaincode/go/driver;go env -w GOPROXY=https://goproxy.cn,direct;go env -w GO111MODULE=auto;go mod init driver;go mod tidy;go mod vendor;cd /opt/gopath/src/github.com/hyperledger/fabric/peer;peer lifecycle chaincode package driver.tar.gz --path github.com/hyperledger/fabric-cluster/chaincode/go/farmer --label driver_1.0"
